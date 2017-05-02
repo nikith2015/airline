@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://com.airline.xsd/Reservation" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com.airline.xsd/Reservation">
+
+    <complexType name="AddReservationRequest">
+    	<sequence>
+    		<element name="reservation_id" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="no_of_passengers" type="int" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="total_price" type="double" maxOccurs="1" minOccurs="0"></element>
+    		<element name="schedule_id" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="AddReservationResponse">
+    	<sequence>
+    		<element name="reservation_id" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="total_price" type="double" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DeleteReservationRequest">
+    	<sequence>
+    		<element name="reservation_id" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="DeleteReservationResponse">
+    	<sequence>
+    		<element name="messagecode" type="string"></element>
+    		<element name="message" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="GetReservationRequest">
+    	<sequence>
+    		<element name="reservation_id" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="GetReservationResponse">
+    	<sequence>
+    		<element name="reservation_id" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="total_price" type="double"></element>
+    		<element name="no_of_passengers" type="int"></element>
+    		<element name="schedule_id" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="UpdateReservationRequest">
+    	<sequence>
+    		<element name="reservation_id" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="no_of_passengers" type="int"></element>
+    		<element name="total_price" type="double"></element>
+    		<element name="schedule_id" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="UpdateReservationResponse">
+    	<sequence>
+    		<element name="reservation_id" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="total_price" type="double"></element>
+    	</sequence>
+    </complexType>
+</schema>

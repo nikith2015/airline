@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://com.soap/AirlineService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AirlineService"
+	targetNamespace="http://com.soap/AirlineService/">
+	<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+		<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+	</jaxws:bindings>
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://com.soap/AirlineService/"
+			xmlns:Q1="http://com.airline.xsd/Reservation">
+			<xsd:import schemaLocation="Reservation.xsd"
+				namespace="http://com.airline.xsd/Reservation"></xsd:import>
+			<xsd:element name="AddOperation" type="Q1:AddReservationRequest">
+			</xsd:element>
+			<xsd:element name="AddOperationResponse" type="Q1:AddReservationResponse">
+			</xsd:element>
+			<xsd:element name="GetOperation" type="Q1:GetReservationRequest">
+			</xsd:element>
+			<xsd:element name="GetOperationResponse" type="Q1:GetReservationResponse">
+			</xsd:element>
+			<xsd:element name="DeleteOperation" type="Q1:DeleteReservationRequest">
+			</xsd:element>
+			<xsd:element name="DeleteOperationResponse" type="Q1:DeleteReservationResponse">
+			</xsd:element>
+			<xsd:element name="UpdateOperation" type="Q1:UpdateReservationRequest">
+			</xsd:element>
+			<xsd:element name="UpdateOperationResponse" type="Q1:UpdateReservationResponse">
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="AddOperationRequest">
+		<wsdl:part element="tns:AddOperation" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AddOperationResponse">
+		<wsdl:part element="tns:AddOperationResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GetOperationRequest">
+		<wsdl:part name="parameters" element="tns:GetOperation"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="GetOperationResponse">
+		<wsdl:part name="parameters" element="tns:GetOperationResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeleteOperationRequest">
+		<wsdl:part name="parameters" element="tns:DeleteOperation"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeleteOperationResponse">
+		<wsdl:part name="parameters" element="tns:DeleteOperationResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="UpdateOperationRequest">
+		<wsdl:part name="parameters" element="tns:UpdateOperation"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="UpdateOperationResponse">
+		<wsdl:part name="parameters" element="tns:UpdateOperationResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="AirlineService">
+		<wsdl:operation name="AddOperation">
+			<wsdl:input message="tns:AddOperationRequest" name="AddOperationRequest" />
+			<wsdl:output message="tns:AddOperationResponse" name="AddOperationResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="GetOperation">
+			<wsdl:input message="tns:GetOperationRequest" name="GetOperationRequest"></wsdl:input>
+			<wsdl:output message="tns:GetOperationResponse" name="GetOperationResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteOperation">
+			<wsdl:input message="tns:DeleteOperationRequest"></wsdl:input>
+			<wsdl:output message="tns:DeleteOperationResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateOperation">
+			<wsdl:input message="tns:UpdateOperationRequest"></wsdl:input>
+			<wsdl:output message="tns:UpdateOperationResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="AirlineServiceSOAP" type="tns:AirlineService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="AddOperation">
+			<soap:operation soapAction="http://com.soap/AirlineService/AddOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetOperation">
+			<soap:operation soapAction="http://com.soap/AirlineService/GetOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteOperation">
+			<soap:operation soapAction="http://com.soap/AirlineService/DeleteOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateOperation">
+			<soap:operation soapAction="http://com.soap/AirlineService/UpdateOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="AirlineService">
+		<wsdl:port binding="tns:AirlineServiceSOAP" name="AirlineServiceSOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
